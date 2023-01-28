@@ -1,0 +1,76 @@
+.hero{
+    background-image: url("/src/Images/hero-bg.jpg"); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 0 45px 0;
+}
+
+.hero__title{
+    margin: 0;
+    border: 2px solid white;
+    padding: 10px;
+    text-align: center;
+    width: 300px;
+    font-weight: 300;
+    font-size: 1.5rem;
+
+    @include tablet-only{
+        align-self: flex-start;
+        margin-left: 40px;
+    }
+}
+
+.hero__text{
+    width: 300px;
+    text-align: center;
+    font-size: 1.3rem;
+    transform: translateY(-55px);
+
+    @include tablet-only{
+        width: 500px;
+        transform: translateY(-45px);
+    }
+
+    @include desktop-only{
+        font-size: 1.5rem;
+        transform: translate(50px, -45px);
+    }
+}
+
+.hero__tech-icon-container{
+    width: 90%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+
+    @include tablet-only{
+        width: 500px;
+    }
+    
+    @include desktop-only{
+        width: 600px;
+        transform: translateX(40px);
+    }
+}
+
+.hero__tech-icon{
+    width: 15%;
+
+    @include tablet-only{
+        height: 50px;
+        width: 50px;
+    }
+
+    @include desktop-only{
+        height: 60px;
+        width: 60px;
+    }
+}
