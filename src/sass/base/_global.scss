@@ -6,6 +6,13 @@
 
 body{
     margin: 0;
-    background-color: rgba(10, 10, 10, 1);
+    background-color: $color-background;
     color: $color-primary;
+    width: 100vw;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar{
+        display: none;
+    }
 }

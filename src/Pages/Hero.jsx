@@ -23,6 +23,14 @@ export default function Hero(){
                 <img src={js} alt="JavaScript logo"  className="hero__tech-icon"/>
                 <img src={github} alt="GitHub logo"  className="hero__tech-icon"/>
             </section>
+
+            <section className="hero__stars-container">
+                <span className="hero__star"></span>
+                <span className="hero__star"></span>
+                <span className="hero__star"></span>
+                <span className="hero__star"></span>
+                <span className="hero__star"></span>
+            </section>
         </section>
     )
 }

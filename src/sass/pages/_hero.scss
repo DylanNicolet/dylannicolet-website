@@ -1,5 +1,5 @@
 .hero{
-    background-image: url("/src/Images/hero-bg.jpg"); 
+    background-image: url("/src/Images/hero-bg.png"); 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -11,6 +11,12 @@
     align-items: center;
     justify-content: space-between;
     padding: 30px 0 45px 0;
+    overflow: hidden;
+
+    @include ultra-wide-only{
+        background-image: linear-gradient(transparent, rgb(10, 10, 10)  98%), url("/src/Images/hero-bg.png");
+        padding: 30px 0 70px 0;
+    }
 }
 
 .hero__title{
@@ -43,6 +49,10 @@
         font-size: 1.5rem;
         transform: translate(50px, -45px);
     }
+
+    @include ultra-wide-only{
+        transform: translate(0px, -30px);
+    }
 }
 
 .hero__tech-icon-container{
@@ -59,6 +69,10 @@
         width: 600px;
         transform: translateX(40px);
     }
+
+    @include ultra-wide-only{
+        transform: translate(0, -40px);
+    }
 }
 
 .hero__tech-icon{
@@ -73,4 +87,75 @@
         height: 60px;
         width: 60px;
     }
+}
+
+.hero__stars-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 90vh;
+}
+
+.hero__star{
+    position: absolute;
+    top: 70%;
+    left: 60%;
+    width: 4px;
+    height: 4px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.1),
+    0 0 0 6px rgba(255,255,255,0.1),
+    0 0 15px rgba(255,255,255,1);
+    animation: animate-stars 5s linear infinite;
+    opacity: 0;
+
+    &::before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        width: 300px;
+        height: 1px;
+        background: linear-gradient(90deg, white, transparent);
+    }
+}
+
+.hero__star:nth-child(1){
+    top: 0px;
+    right: 300px;
+    left: initial;
+    animation-delay: 1s;
+    animation-duration: 5s;
+    width: 5px;
+    height: 5px;
+}
+
+.hero__star:nth-child(2){
+    top: 100px;
+    right: 800px;
+    left: initial;
+    animation-delay: 2.5s;
+    animation-duration: 6s;
+    width: 4px;
+    height: 4px;
+}
+
+.hero__star:nth-child(3){
+    top: 350px;
+    right: 100px;
+    left: initial;
+    animation-delay: 3s;
+    animation-duration: 7s;
+    width: 3px;
+    height: 3px;
+}
+
+.hero__star:nth-child(4){
+    top: 100px;
+    left: 400px;
+    animation-delay: 1s;
+    animation-duration: 8s;
+    width: 3px;
+    height: 3px;
 }
