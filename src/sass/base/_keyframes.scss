@@ -18,3 +18,19 @@
         opacity: 0;
     }
 }
+
+@keyframes entrance-animation{
+    0%{
+        transform: translateY(40px);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.entrance-animation{
+    animation: entrance-animation 2s ease-in-out;
+}
