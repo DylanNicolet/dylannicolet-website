@@ -1,0 +1,52 @@
+.featured-card{
+    width: 85vw;
+    margin:  40px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: left;
+    padding-bottom: 79px;
+    position: relative;
+    background-color: $color-secondary;
+
+    @include tablet-only{
+        width: 100%;
+        height: 100%;
+        margin: auto;
+    }
+}
+
+.featured-card__image{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.featured-card__title{
+    font-size: 1.7rem;
+    margin: 10px auto 0 auto;
+    max-width: 90%;
+}
+
+.featured-card__origin{
+    max-width: 90%;
+    margin: 0 auto 0 auto;
+}
+
+.featured-card__description{
+    max-width: 90%;
+    margin: 20px auto;
+}
+
+.featured-card__tech-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: absolute;
+    bottom: 0;
+}
+
+.featured-card__tech{
+    height: 40px;
+    margin: 7px;
+}
