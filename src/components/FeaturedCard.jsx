@@ -9,6 +9,11 @@ export default function FeaturedCard(props){
 
     return(
         <section className="featured-card">
+            <section className="featured-card__modal">
+                <a href={props.github} target="_blank" rel="noreferrer"><button className="button-primary">GitHub Code</button> </a>
+                <a href={props.live}  target="_blank" rel="noreferrer"><button className="button-primary">Live preview</button></a> 
+            </section>
+
             <img src={props.imageSource} alt="thumbnail preview of the website"  className="featured-card__image"/>
             <h1 className="featured-card__title">{props.title}</h1>
             <p className="featured-card__origin">{props.origin}</p>

@@ -15,6 +15,8 @@ export default function FeaturedProjects(){
                 origin={project.origin}
                 description={project.description} 
                 techUsed={project.techUsed}
+                github={project.github}
+                live={project.live}
             />
         )
     })
