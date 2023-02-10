@@ -4,6 +4,7 @@ import Profile from './Pages/Profile.jsx';
 import FeaturedProjects from './Pages/FeaturedProjects.jsx';
 import AboutMe from './Pages/AboutMe.jsx';
 import "./sass/App.css";
+import Contact from './Pages/Contact.jsx';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Profile/>
       <FeaturedProjects />
       <AboutMe />
+      <Contact />
     </div>
   );
 }
