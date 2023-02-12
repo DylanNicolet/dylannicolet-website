@@ -1,21 +1,9 @@
-import React from "react";
+import React from "react"
 import profilePicture from "../Images/profile.webp"
+import linkdinLogo from "../Images/linkdin-logo.png"
+import githubLogo from "../Images/github-logo.png"
 
 export default function Profile(){
-
-    /*
-    const myRef = React.useRef()
-    const [elementVisible, setElementVisible] = React.useState()
-    React.useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            const entry = entries[0]
-            setElementVisible(entry.isIntersecting)
-            console.log(entry.isIntersecting)
-        })
-        observer.observe(myRef.current)
-    }, [])
-    <img src={profilePicture} alt="" className={`${"profile__image"} ${elementVisible ? "entrance-animation" : ""}`} ref={myRef}/>
-    */
 
     return(
         <section className="profile">
@@ -28,6 +16,11 @@ export default function Profile(){
                 <br /> This website will provide you with examples of my work and <mark>{"<a>"}</mark><a href="https://github.com/DylanNicolet" rel="noreferrer" target="_blank">links</a><mark>{"</a>"}</mark> to my code hosted on GitHub.
                 <br />  So don't hesitate to visite them. Enjoy! <br />
                 <mark>{"</p>"}</mark></p>
+            </section>
+
+            <section className="profile__logo-container">
+                <a href="https://github.com/DylanNicolet" rel="noreferrer" target="_blank"><img src={githubLogo} alt="Link to GitHub" className="profile__logo"/></a>
+                <a href="https://www.linkedin.com/in/dylan-nicolet-reactwebdeveloper/" rel="noreferrer" target="_blank"><img src={linkdinLogo} alt="Link to Linkdin" className="profile__logo" style={{width: "50px"}}/></a>
             </section>
         </section>
     )
