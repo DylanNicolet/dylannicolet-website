@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 30px 0 45px 0;
-    overflow: hidden;
+    position: relative;
 
     @include ultra-wide-only{
         background-image: linear-gradient(transparent, rgb(10, 10, 10)  98%), url("/src/Images/hero-bg.png");
@@ -99,8 +99,8 @@
 
 .hero__star{
     position: absolute;
-    top: 70%;
-    left: 60%;
+    top: 60%;
+    left: 40%;
     width: 4px;
     height: 4px;
     background-color: white;
@@ -111,51 +111,94 @@
     animation: animate-stars 5s linear infinite;
     opacity: 0;
 
+    @include desktop-only{
+        animation: animate-stars-desktop 5s linear infinite;
+    }
+
     &::before{
         content: '';
         position: absolute;
         top: 50%;
-        width: 300px;
+        width: 150px;
         height: 1px;
         background: linear-gradient(90deg, white, transparent);
+
+        @include desktop-only{
+            width: 300px;
+        }
     }
 }
 
 .hero__star:nth-child(1){
     top: 0px;
-    right: 300px;
+    right: 150px;
     left: initial;
     animation-delay: 1s;
     animation-duration: 5s;
     width: 5px;
     height: 5px;
+
+    @include tablet-only{
+        top: 0px;
+        left: 150px;
+    }
+
+    @include desktop-only{
+        top: 0px;
+        left: 300px;
+    }
 }
 
 .hero__star:nth-child(2){
-    top: 100px;
-    right: 800px;
+    top: 300px;
+    right: 160px;
     left: initial;
     animation-delay: 2.5s;
     animation-duration: 6s;
     width: 4px;
     height: 4px;
+
+    @include tablet-only{
+        top: 300px;
+        right: 500px;
+    }
+
+    @include desktop-only{
+        top: 500px;
+        right: 400px;
+    }
 }
 
 .hero__star:nth-child(3){
-    top: 350px;
-    right: 100px;
+    top: 200px;
+    right: 150px;
     left: initial;
     animation-delay: 3s;
     animation-duration: 7s;
     width: 3px;
     height: 3px;
+
+    @include desktop-only{
+        top: 200px;
+        right: 500px;
+    }
 }
 
 .hero__star:nth-child(4){
-    top: 100px;
-    left: 400px;
-    animation-delay: 1s;
-    animation-duration: 8s;
+    top: 600px;
+    right: 0px;
+    animation-delay: 4s;
+    animation-duration: 7s;
     width: 3px;
     height: 3px;
+
+    @include tablet-only{
+        top: 550px;
+        left: 250px;
+    }
+
+    @include desktop-only{
+        top: 550px;
+        right: 50%;
+    }
 }
