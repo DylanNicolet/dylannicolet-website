@@ -1,9 +1,7 @@
-@use "../utils" as u;
-
 .loading-spinner{
     width: 100vw;
     height: 100vh;
-    background-color:u.$color-background;
+    background-color:$color-background;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,11 +1,9 @@
-@use "../utils" as u;
-
 .contact{
     width: 100%;
     text-align: center;
     padding-bottom: 50px;
 
-    @include u.tablet-only{
+    @include tablet-only{
         padding-top: 50px; 
     }
 }
@@ -16,7 +14,7 @@
     text-align: center;
     font-size: 1.7rem;
 
-    @include u.desktop-only{
+    @include desktop-only{
         font-size: 2.7rem;
     }
 }
@@ -25,11 +23,11 @@
     width: 80%;
     margin: auto;
 
-    @include u.tablet-only{
+    @include tablet-only{
         width: 400px;
     }
 
-    @include u.desktop-only{
+    @include desktop-only{
         width: 550px;   
     }
 }
@@ -39,7 +37,7 @@
     flex-direction: column;
     align-items: center;
 
-    @include u.tablet-only{
+    @include tablet-only{
         flex-direction: row;
         justify-content: center;
     }
@@ -48,7 +46,7 @@
 .contact__button-container a{
     width: 80%;
 
-    @include u.tablet-only{
+    @include tablet-only{
         
         width: 300px;
         margin: 0 10px;
