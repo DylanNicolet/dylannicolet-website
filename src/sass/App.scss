@@ -1,21 +1,15 @@
-@import "./utils/variables";
-@import "./utils/maps";
-@import "./utils/mixins";
-@import "./utils/loops";
+@use "./base/global";
+@use "./base/typography";
+@use "./base/keyframes";
 
-@import "./base/global";
-@import "./base/typography";
-@import "./base/keyframes";
+@use "./components/loading-spinner";
+@use "./components/buttons";
+@use "./components/featured-card";
 
-//@import "./components/my-component";
-@import "./components/buttons";
-@import "./components/featured-card";
+//@use "./layouts/header";
 
-//@import "./layouts/header";
-
-//@import "./pages/homepage";
-@import "./pages/hero";
-@import "./pages/profile";
-@import "./pages/featured-projects";
-@import "./pages/about-me";
-@import "./pages/contact";
+@use "./pages/hero";
+@use "./pages/profile";
+@use "./pages/featured-projects";
+@use "./pages/about-me";
+@use "./pages/contact";

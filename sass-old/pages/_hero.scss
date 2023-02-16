@@ -1,0 +1,207 @@
+.hero{
+    background-image: linear-gradient(transparent, rgb(10, 10, 10)  98%), url("/src/Images/hero-bg-mobile.webp"); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 0 45px 0;
+    position: relative;
+
+    @include tablet-only{
+        background-image: linear-gradient(transparent, rgb(10, 10, 10)  98%), url("/src/Images/hero-bg.webp");
+    }
+
+    @include ultra-wide-only{
+        padding: 30px 0 70px 0;
+    }
+}
+
+.hero__title{
+    margin: 0;
+    border: 2px solid white;
+    padding: 10px;
+    text-align: center;
+    width: 300px;
+    font-weight: 300;
+    font-size: 1.5rem;
+
+    @include tablet-only{
+        align-self: flex-start;
+        margin-left: 40px;
+    }
+}
+
+.hero__text{
+    width: 300px;
+    text-align: center;
+    font-size: 1.3rem;
+    transform: translateY(-55px);
+
+    @include tablet-only{
+        width: 500px;
+        transform: translateY(-45px);
+    }
+
+    @include desktop-only{
+        font-size: 1.5rem;
+        transform: translate(50px, -45px);
+    }
+
+    @include ultra-wide-only{
+        transform: translate(0px, -30px);
+    }
+}
+
+.hero__tech-icon-container{
+    width: 90%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+
+    @include tablet-only{
+        width: 500px;
+    }
+    
+    @include desktop-only{
+        width: 600px;
+        transform: translateX(40px);
+    }
+
+    @include ultra-wide-only{
+        transform: translate(0, -40px);
+    }
+}
+
+.hero__tech-icon{
+    width: 15%;
+
+    @include tablet-only{
+        height: 50px;
+        width: 50px;
+    }
+
+    @include desktop-only{
+        height: 60px;
+        width: 60px;
+    }
+}
+
+.hero__stars-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 90vh;
+}
+
+.hero__star{
+    position: absolute;
+    top: 60%;
+    left: 40%;
+    width: 4px;
+    height: 4px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.1),
+    0 0 0 6px rgba(255,255,255,0.1),
+    0 0 15px rgba(255,255,255,1);
+    animation: animate-stars 5s linear infinite;
+    opacity: 0;
+
+    @include desktop-only{
+        animation: animate-stars-desktop 5s linear infinite;
+    }
+
+    &::before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        width: 150px;
+        height: 1px;
+        background: linear-gradient(90deg, white, transparent);
+
+        @include desktop-only{
+            width: 300px;
+        }
+    }
+}
+
+.hero__star:nth-child(1){
+    top: 0px;
+    right: 150px;
+    left: initial;
+    animation-delay: 1s;
+    animation-duration: 5s;
+    width: 5px;
+    height: 5px;
+
+    @include tablet-only{
+        top: 0px;
+        left: 150px;
+    }
+
+    @include desktop-only{
+        top: 0px;
+        left: 300px;
+    }
+}
+
+.hero__star:nth-child(2){
+    top: 300px;
+    right: 160px;
+    left: initial;
+    animation-delay: 2.5s;
+    animation-duration: 6s;
+    width: 4px;
+    height: 4px;
+
+    @include tablet-only{
+        top: 300px;
+        right: 500px;
+    }
+
+    @include desktop-only{
+        top: 500px;
+        right: 400px;
+    }
+}
+
+.hero__star:nth-child(3){
+    top: 200px;
+    right: 150px;
+    left: initial;
+    animation-delay: 3s;
+    animation-duration: 7s;
+    width: 3px;
+    height: 3px;
+
+    @include desktop-only{
+        top: 200px;
+        right: 500px;
+    }
+}
+
+.hero__star:nth-child(4){
+    top: 600px;
+    right: 0px;
+    animation-delay: 4s;
+    animation-duration: 7s;
+    width: 3px;
+    height: 3px;
+
+    @include tablet-only{
+        top: 550px;
+        left: 250px;
+    }
+
+    @include desktop-only{
+        top: 550px;
+        right: 50%;
+    }
+}

@@ -1,3 +1,5 @@
+@use "../utils" as u;
+
 .featured-card{
     width: 85vw;
     margin:  40px auto;
@@ -6,10 +8,10 @@
     text-align: left;
     padding-bottom: 79px;
     position: relative;
-    background-color: $color-secondary;
+    background-color: u.$color-secondary;
     transition: all 0.5s;
 
-    @include tablet-only{
+    @include u.tablet-only{
         width: 100%;
         height: 100%;
         margin: auto;

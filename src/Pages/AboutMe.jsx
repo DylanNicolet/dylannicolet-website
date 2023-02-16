@@ -1,6 +1,5 @@
 import React from "react"
 import image from "../Images/about-page_image.webp"
-import binaryBackground from "../Images/binary-background.webp"
 
 export default function AboutMe(){
     return(

@@ -1,9 +1,11 @@
+@use "../utils" as u;
+
 .about-me{
     width: 100%;
     text-align: center;
     padding-bottom: 50px;
 
-    @include desktop-only{
+    @include u.desktop-only{
         padding-top: 50px;
     }
 }
@@ -13,24 +15,24 @@
     margin: 0 auto;
     font-weight: 400;
 
-    @include tablet-only{
+    @include u.tablet-only{
         margin: 0 auto 30px auto;
     }
 
-    @include desktop-only{
+    @include u.desktop-only{
         font-size: 3rem;
     }
 }
 
 .about-me__container{
-    @include tablet-only{
+    @include u.tablet-only{
         display: flex;
         flex-direction: row-reverse;
         width: 90%;
         margin: auto;
     }
 
-    @include desktop-only{
+    @include u.desktop-only{
         max-width: 1400px;
     }
 }
@@ -44,9 +46,12 @@
     margin: auto;
     border-radius: 40%;
 
-    @include tablet-only{
+    @include u.tablet-only{
         width: 45%;
-        margin: auto auto 70px auto;
+    }
+
+    @include u.desktop-only{
+        margin-top: 0;
     }
 }
 
@@ -61,12 +66,12 @@
     margin: 40px auto;
     text-align: left;
 
-    @include tablet-only{
+    @include u.tablet-only{
         width: 45%;
-        margin: 150px auto auto auto;
+        margin: 0 auto auto auto;
     }
 
-    @include desktop-only{
+    @include u.desktop-only{
         margin: 0 auto 100px auto;
         width: 30%;
         align-self: flex-end;
