@@ -1,4 +1,5 @@
 @use "../utils" as u;
+@import url('https://fonts.googleapis.com/css2?family=Babylonica&display=swap');
 
 .hero{
     background-image: linear-gradient(transparent, rgb(10, 10, 10)  98%), url("/src/Images/hero-bg-mobile.webp"); 
@@ -27,16 +28,19 @@
 
 .hero__title{
     margin: 0;
-    border: 2px solid white;
     padding: 10px;
     text-align: center;
-    width: 300px;
+    font-size: 2.6rem;
     font-weight: 300;
-    font-size: 1.5rem;
+    font-family: 'Babylonica', "cursive";
 
     @include u.tablet-only{
         align-self: flex-start;
         margin-left: 40px;
+    }
+
+    @include u.desktop-only{
+        font-size: 3.2rem;
     }
 }
 
