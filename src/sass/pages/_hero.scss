@@ -14,6 +14,7 @@
     justify-content: space-between;
     padding: 30px 0 45px 0;
     position: relative;
+    overflow-x: hidden;
 
     @include u.tablet-only{
         background-image: linear-gradient(transparent, rgb(10, 10, 10)  98%), url("/src/Images/hero-bg.webp");
@@ -176,12 +177,16 @@
 
 .hero__star:nth-child(3){
     top: 200px;
-    right: 150px;
+    right: 160px;
     left: initial;
     animation-delay: 3s;
     animation-duration: 7s;
     width: 3px;
     height: 3px;
+
+    @include u.tablet-only{
+        right: 200px;
+    }
 
     @include u.desktop-only{
         top: 200px;
@@ -190,8 +195,8 @@
 }
 
 .hero__star:nth-child(4){
-    top: 600px;
-    right: 0px;
+    top: 450px;
+    left: 200px;
     animation-delay: 4s;
     animation-duration: 7s;
     width: 3px;

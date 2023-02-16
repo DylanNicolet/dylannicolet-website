@@ -48,7 +48,10 @@
 
     @include u.tablet-only{
         width: 45%;
-        margin: auto auto 70px auto;
+    }
+
+    @include u.desktop-only{
+        margin-top: 0;
     }
 }
 
@@ -65,7 +68,7 @@
 
     @include u.tablet-only{
         width: 45%;
-        margin: 150px auto auto auto;
+        margin: 0 auto auto auto;
     }
 
     @include u.desktop-only{
