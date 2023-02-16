@@ -7,11 +7,29 @@ import js from "../Images/js-logo.png"
 import github from "../Images/github-logo.png"
 
 export default function Hero(){
+
+    //Rotates the center element according to cursor position
+    function rotateElement(event){
+        const x = event.clientX
+        const y = event.clientY
+
+        const middleX = window.innerWidth / 2
+        const middleY = window.innerHeight / 2
+
+        const offsetX = ((x - middleX) / middleX) * 45
+        const offsetY = ((y - middleY) / middleY) * 45
+
+        const element = document.getElementById("hero__text")
+
+        element.style.setProperty("--rotateX", -1 * offsetY + "deg")
+        element.style.setProperty("--rotateY", offsetX + "deg")
+    }
+
     return(
-        <section className="hero">
+        <section className="hero" onMouseMove={e => rotateElement(e)}>
             <h1 className="hero__title">{"< /Dylan Nicolet >"}</h1>
 
-            <p className="hero__text">
+            <p className="hero__text" id="hero__text">
                 Creating beautiful and functional websites that drive results
             </p>
             

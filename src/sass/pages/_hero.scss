@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Babylonica&display=swap');
 
 .hero{
-    background-image: linear-gradient(transparent, rgb(10, 10, 10)  98%), url("/src/Images/hero-bg-mobile.webp"); 
+    background-image: linear-gradient(transparent, rgb(0, 0, 0)  98%), url("/src/Images/hero-bg-mobile.webp"); 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -18,7 +18,7 @@
     overflow-x: hidden;
 
     @include u.tablet-only{
-        background-image: linear-gradient(transparent, rgb(10, 10, 10)  98%), url("/src/Images/hero-bg.webp");
+        background-image: linear-gradient(transparent, u.$color-background  98%), url("/src/Images/hero-bg.webp");
     }
 
     @include u.ultra-wide-only{
@@ -56,12 +56,41 @@
     }
 
     @include u.desktop-only{
-        font-size: 1.5rem;
-        transform: translate(50px, -45px);
-    }
+        width: 600px;
+        font-size: 1.5rem;z-index: 2;
+        background-color: u.$color-background;
+        padding: 40px 20px;
+        border-radius: 20px;
+        text-shadow:  0 0 0.3em currentColor;
 
-    @include u.ultra-wide-only{
-        transform: translate(0px, -30px);
+        //Code for rotating element according to cursor position
+        transform:
+            perspective(5000px)
+            rotateY(var(--rotateY))
+            rotateX(var(--rotateX))
+        ;
+        position: relative;
+        transform-style: preserve-3d;
+
+        &::before{
+            content: "";
+            position: absolute;
+            border-radius: inherit;
+            inset: 0.75rem;
+            background-color: black;
+            transform: translateZ(-49px);
+            filter: blur(15px);
+            opacity: 0.5;
+        }
+
+        &::after{
+            content: "";
+            position: absolute;
+            border-radius: inherit;
+            inset: -1rem;
+            background: linear-gradient(-45deg, rgb(3, 150, 150), rgb(156, 7, 156));
+            transform: translateZ(-50px);
+        }
     }
 }
 
