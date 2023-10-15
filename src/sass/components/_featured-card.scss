@@ -1,6 +1,6 @@
 @use "../utils" as u;
 
-.featured-card{
+.featured-card {
     width: 85vw;
     margin:  40px auto;
     border-radius: 10px;
@@ -11,71 +11,117 @@
     background-color: u.$color-secondary;
     transition: all 0.5s;
 
-    @include u.tablet-only{
+    @include u.tablet-only {
         width: 100%;
         height: 100%;
         margin: auto;
     }
 
-    &:hover > .featured-card__modal, :active > .featured-card__modal{
+    &:hover > .featured-card__modal, :active > .featured-card__modal {
         visibility: visible;
         opacity: 1;
     }
-}
 
-.featured-card__modal{
-    visibility: hidden;
-    opacity: 0;
-    background-color: rgba(43, 43, 43, 0.95);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.5s;
 
-    a{
-        margin-bottom: 20px;
+    &__modal {
+        visibility: hidden;
+        opacity: 0;
+        background-color: rgba(43, 43, 43, 0.95);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.5s;
+
+        .button-primary {
+            margin-bottom: 20px;
+        }
     }
-}
 
-.featured-card__image{
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
+    &__image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
 
-.featured-card__title{
-    font-size: 1.7rem;
-    margin: 10px auto 0 auto;
-    max-width: 90%;
-}
+    &__title {
+        font-size: 1.7rem;
+        margin: 10px auto 0 auto;
+        max-width: 90%;
+    }
 
-.featured-card__origin{
-    max-width: 90%;
-    margin: 0 auto 0 auto;
-}
+    &__origin {
+        max-width: 90%;
+        margin: 0 auto 0 auto;
+    }
 
-.featured-card__description{
-    max-width: 90%;
-    margin: 20px auto;
-}
+    &__description {
+        max-width: 90%;
+        margin: 20px auto;
+    }
 
-.featured-card__tech-container{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    position: absolute;
-    bottom: 0;
-}
+    &__tech-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        position: absolute;
+        bottom: 0;
+    }
 
-.featured-card__tech{
-    height: 40px;
-    margin: 7px;
+    &__tech {
+        height: 40px;
+        margin: 7px;
+    }
+
+    &__preview {
+        background-color: u.$translucent-background;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &.activate-preview {
+            animation: activate-preview 5s;
+        }
+
+        .featured-card__preview-container {
+            width: 100%;
+            height: 95%;
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+
+            @include u.tablet-only {
+                width: 90%;                
+            }
+
+            .button__close-preview {
+                width: 50px;
+                height: 50px;
+                background-color: transparent;
+                border: none;
+                margin-left: auto;
+                font-size: 2rem;
+                transform: rotate(45deg);
+                cursor: pointer;
+            }
+
+            iframe {
+                width: 100%;
+                flex-grow: 1;
+            }
+        }
+    }
 }
