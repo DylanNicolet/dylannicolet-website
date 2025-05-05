@@ -1,4 +1,5 @@
 import React from "react"
+import ContactButtons from "../components/ContactButtons"
 import 'swiper/css'
 import git from "../Images/git-logo.png"
 import html from "../Images/html-logo.png"
@@ -30,7 +31,14 @@ export default function Hero(){
 
     return(
         <section className="hero" onMouseMove={e => rotateElement(e)}>
-            <h1 className="hero__title">{"< /Dylan Nicolet >"}</h1>
+            <header>
+                <section className="hero__title-container">
+                    <p>{"<"}</p>
+                    <h1 className="hero__title">Dylan Nicolet</h1>
+                    <p>{" />"}</p>
+                </section>
+                <ContactButtons />
+            </header>
 
             <p className="hero__text" id="hero__text">
                 Front-end development, done thoughtfully.

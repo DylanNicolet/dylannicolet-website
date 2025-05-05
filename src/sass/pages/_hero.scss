@@ -17,13 +17,34 @@
     position: relative;
     overflow-x: hidden;
 
-    .hero__title {
-        margin: 0;
-        padding: 10px;
-        text-align: center;
-        font-size: 2.6rem;
-        font-weight: 300;
-        font-family: 'Babylonica', "cursive";
+    header {
+        z-index: 3;
+        width: 100%;
+
+        .hero__title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            text-align: center;
+            font-size: 2.6rem;
+            font-weight: 300;
+            font-family: 'Babylonica', "cursive";
+
+            p {
+                margin: 0;
+            }
+            
+            .hero__title {
+                font-size: 3rem;
+                font-weight: 300;
+                margin: 0;
+            }
+        }
+
+        .contact__button-container {
+            margin-top: 1rem;
+        }
     }
 
     .hero__text {
@@ -189,8 +210,20 @@
     }
 
     @include u.desktop-only {
-        .hero__title {
-            font-size: 3.2rem;
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 5%;
+
+            .hero__title-container {
+                .hero__title {
+                    font-size: 3.2rem;
+                }
+            }
+
+            .contact__button-container {
+                margin-top: 0;
+            }
         }
 
         .hero__text {
