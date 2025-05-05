@@ -11,8 +11,8 @@ function App() {
   return (
     <div className="App">
       <LoadingSpinner />
-      <Hero/>
-      <Profile/>
+      <Hero />
+      <Profile />
       <FeaturedProjects />
       <AboutMe />
       <Contact />

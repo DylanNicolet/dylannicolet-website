@@ -1,15 +1,19 @@
-import React from "react";
+import React from "react"
+import ContactButtons from "../components/ContactButtons"
+import 'swiper/css'
+import git from "../Images/git-logo.png"
+import html from "../Images/html-logo.png"
 import css from "../Images/css-logo.png"
-import sass from "../Images/sass-logo.png"
+import scss from "../Images/scss-logo.png"
+import js from "../Images/js-logo.png"
 import react from "../Images/react-logo.png"
 import redux from "../Images/redux-logo.png"
-import js from "../Images/js-logo.png"
-import github from "../Images/github-logo.png"
+import zustand from "../Images/zustand-logo.png"
+import router from "../Images/router-logo.png"
 
 export default function Hero(){
-
-    //Rotates the center element according to cursor position
-    function rotateElement(event){
+    // Rotates the center element according to cursor position
+    function rotateElement(event) {
         const x = event.clientX
         const y = event.clientY
 
@@ -27,19 +31,37 @@ export default function Hero(){
 
     return(
         <section className="hero" onMouseMove={e => rotateElement(e)}>
-            <h1 className="hero__title">{"< /Dylan Nicolet >"}</h1>
+            <header>
+                <section className="hero__title-container">
+                    <p>{"<"}</p>
+                    <h1 className="hero__title">Dylan Nicolet</h1>
+                    <p>{" />"}</p>
+                </section>
+                <ContactButtons />
+            </header>
 
             <p className="hero__text" id="hero__text">
-                Creating beautiful and functional websites that drive results
+                Front-end development, done thoughtfully.
             </p>
             
             <section className="hero__tech-icon-container">
-                <img src={css} alt="Css logo" className="hero__tech-icon"/>
-                <img src={sass} alt="Sass logo"  className="hero__tech-icon"/>
-                <img src={react} alt="React logo"  className="hero__tech-icon"/>
-                <img src={redux} alt="Redux"  className="hero__tech-icon"/>
-                <img src={js} alt="JavaScript logo"  className="hero__tech-icon"/>
-                <img src={github} alt="GitHub logo"  className="hero__tech-icon"/>
+                <div className="tech-ticker">
+                    <div className="tech-track">
+                        {[...Array(2)].map((_, i) => (
+                            <React.Fragment key={i}>
+                                <div className="tech-slide"><img src={git} alt="Git" /><p>GIT</p></div>
+                                <div className="tech-slide"><img src={html} alt="HTML" /><p>HTML</p></div>
+                                <div className="tech-slide"><img src={css} alt="CSS" /><p>CSS</p></div>
+                                <div className="tech-slide"><img src={scss} alt="SCSS" /><p>SCSS</p></div>
+                                <div className="tech-slide"><img src={js} alt="JS" /><p>JavaScript</p></div>
+                                <div className="tech-slide"><img src={react} alt="React" /><p>React</p></div>
+                                <div className="tech-slide"><img src={redux} alt="Redux" /><p>Redux</p></div>
+                                <div className="tech-slide"><img src={zustand} alt="Zustand" /><p>Zustand</p></div>
+                                <div className="tech-slide"><img src={router} alt="Router" /><p>Router</p></div>
+                            </React.Fragment>
+                        ))}
+                    </div>
+                </div>
             </section>
 
             <section className="hero__stars-container">
