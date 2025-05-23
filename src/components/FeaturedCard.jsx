@@ -6,7 +6,7 @@ export default function FeaturedCard(props){
 
     let techUsed = props.techUsed.map((tech, index) => {
         return(
-            <img src={tech} alt="tech logo"  key={index} className="featured-card__tech" />
+            <img key={index} src={`/images/${tech}-logo.png`} alt={`${tech} logo`} className="featured-card__tech" />
         )
     })
 
