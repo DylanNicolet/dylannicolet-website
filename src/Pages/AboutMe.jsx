@@ -1,4 +1,3 @@
-import React from "react"
 import image from "../Images/about-page_image.webp"
 
 export default function AboutMe(){
@@ -20,7 +19,6 @@ export default function AboutMe(){
                     <br />
                     <p>Curently specialising in the javaScript framework React and it's components, I intend to ultimatly expand my knowledge to the backend, thus becoming one day Full-stack.</p>
                 </section>
-                
             </section>
         </section>
     )
