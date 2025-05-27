@@ -1,11 +1,8 @@
-import React from "react"
 import FeaturedCard from "../components/FeaturedCard"
 import database from "../featuredProjects"
 
 export default function FeaturedProjects(){
-    let data = database.featuredProjectsData
-
-    let featureCards = data.map((project, index) => {
+    let featureCards = database.featuredProjectsData.map((project, index) => {
         return(
             <FeaturedCard 
                 key={index} 
