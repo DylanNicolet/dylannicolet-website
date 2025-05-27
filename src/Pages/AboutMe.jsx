@@ -1,4 +1,4 @@
-import image from "../Images/about-page_image.webp"
+import image from "../assets/images/about-page_image.webp"
 
 export default function AboutMe(){
     return(

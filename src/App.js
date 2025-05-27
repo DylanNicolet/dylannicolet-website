@@ -1,4 +1,3 @@
-import React from 'react';
 import LoadingSpinner from './components/LoadingSpinner.jsx';
 import Hero from './Pages/Hero.jsx';
 import Profile from './Pages/Profile.jsx';

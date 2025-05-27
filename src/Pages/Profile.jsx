@@ -1,6 +1,6 @@
-import profilePicture from "../Images/profile.webp"
-import linkdinLogo from "../Images/linkdin-logo.png"
-import githubLogo from "../Images/github-logo.png"
+import profilePicture from "../assets/images/profile.webp"
+import linkdinLogo from "../assets/images/linkdin-logo.png"
+import githubLogo from "../assets/images/github-logo.png"
 
 export default function Profile() {
     return (

@@ -1,1 +1,1 @@
-- Remove images from Public folder and reroute it properly.
+- Remove images from Public folder and reroute it properly. - Done
