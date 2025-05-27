@@ -1,1 +1,4 @@
 - Remove images from Public folder and reroute it properly. - Done
+- Add new neon styles
+- Optimise tablette and small desktop
+- Add ultra large screen limits

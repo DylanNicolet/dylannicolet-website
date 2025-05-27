@@ -1,12 +1,11 @@
-@use "./base/global";
 @use "./base/typography";
+@use "./base/global";
 @use "./base/keyframes";
 
 @use "./components/loading-spinner";
 @use "./components/buttons";
 @use "./components/featured-card";
-
-//@use "./layouts/header";
+@use "./components/ContactButtons";
 
 @use "./pages/hero";
 @use "./pages/profile";

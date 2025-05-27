@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function ContactButtons() {
     return (
         <section className="contact__button-container">

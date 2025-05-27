@@ -1,4 +1,3 @@
-import React from "react";
 import contactImage from "../assets/images/contact-page_image.webp"
 import ContactButtons from "../components/ContactButtons";
 

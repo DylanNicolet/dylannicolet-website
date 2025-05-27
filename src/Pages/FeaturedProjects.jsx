@@ -1,4 +1,3 @@
-import React from "react"
 import FeaturedCard from "../components/FeaturedCard"
 import database from "../featuredProjects"
 
