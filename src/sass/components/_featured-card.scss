@@ -4,11 +4,12 @@
     width: 85vw;
     margin:  40px auto;
     border-radius: 10px;
+    border: 2px solid darken(u.$color-primary, 20%);
     overflow: hidden;
     text-align: left;
     padding-bottom: 79px;
     position: relative;
-    background-color: u.$color-secondary;
+    background-color: transparent;
     transition: all 0.5s;
 
     @include u.tablet-only {
@@ -17,7 +18,13 @@
         margin: auto;
     }
 
-    &:hover > .featured-card__modal, :active > .featured-card__modal {
+    &:hover {
+        box-shadow: 0 10px 20px u.$color-box-shadows;
+        border-color: u.$color-border;
+    } 
+
+    &:hover > .featured-card__modal, 
+    &:active > .featured-card__modal {
         visibility: visible;
         opacity: 1;
     }
@@ -45,9 +52,12 @@
     }
 
     &__image {
+        //padding: 10px;
         width: 100%;
         height: 200px;
         object-fit: cover;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
     }
 
     &__title {
@@ -98,8 +108,10 @@
         .featured-card__preview-container {
             width: 100%;
             height: 95%;
-            background-color: white;
+            background-color: u.$color-background;
             border-radius: 10px;
+            border: 2px solid u.$color-border;
+            box-shadow: 0 10px 20px u.$color-box-shadows;
             display: flex;
             flex-direction: column;
 
@@ -114,13 +126,17 @@
                 border: none;
                 margin-left: auto;
                 font-size: 2rem;
+                color: u.$color-border;
                 transform: rotate(45deg);
                 cursor: pointer;
             }
 
             iframe {
+                background-color: u.$color-primary;
                 width: 100%;
                 flex-grow: 1;
+                border: none;
+                border-top: 2px solid u.$color-border;
             }
         }
     }
