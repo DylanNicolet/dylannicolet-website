@@ -2,7 +2,7 @@ import React from "react";
 
 export default function FeaturedCard(props){
     // States
-    let [previewActive, setPreviewActive] = React.useState(false)
+    const [previewState, setPreviewState] = React.useState("inactive"); // "active", "closing", "inactive"
 
     let techUsed = props.techUsed.map((tech, index) => {
         return(
@@ -11,17 +11,20 @@ export default function FeaturedCard(props){
     })
 
     function activatePreview() {
-        setPreviewActive(true)
+        setPreviewState("active");
     }
 
     function deactivatePreview() {
-        setPreviewActive(false)
+        setPreviewState("closing");
+
+        setTimeout(() => {
+            setPreviewState("inactive");
+        }, 300); // match CSS animation duration
     }
 
-    // Close the preview when the mouse leaves the popup
     function handleMouseLeave() {
-        if (previewActive) {
-          deactivatePreview();
+        if (previewState === "active") {
+            deactivatePreview();
         }
     }
 
@@ -29,19 +32,21 @@ export default function FeaturedCard(props){
         <section className="featured-card">
             <section className="featured-card__modal">
                 { (props.title !== "Component library") && // Don't generate live preview for component library
-                    <button className="button-primary" onClick={activatePreview}>Mini preview</button>
+                    <>
+                        <button className="button-primary" onClick={activatePreview}>Mini preview</button>
+                        <div
+                            className={`featured-card__preview ${previewState === "active" ? "previewActive" : previewState === "closing" ? "previewClosing" : ""}`}
+                            onMouseLeave={handleMouseLeave}
+                        >
+                            <div className="featured-card__preview-container">
+                                <button onClick={deactivatePreview} className="button__close-preview">+</button>
+                                <iframe src={props.live} title="Live preview of the website"></iframe>
+                            </div>
+                        </div>
+                    </>
                 }
                 <a href={props.live}  target="_blank" rel="noreferrer"><button className="button-primary">Live website</button></a>
                 <a href={props.github} target="_blank" rel="noreferrer"><button className="button-primary">GitHub Code</button> </a>
-
-                { previewActive &&
-                    <div className="featured-card__preview" onMouseLeave={handleMouseLeave}>
-                        <div className="featured-card__preview-container">
-                            <button onClick={deactivatePreview} className="button__close-preview">+</button>
-                            <iframe src={props.live} title="Live preview of the website"></iframe>
-                        </div>
-                    </div>
-                }
             </section>
 
             <img src={props.imageSource} alt="thumbnail preview of the website"  className="featured-card__image"/>

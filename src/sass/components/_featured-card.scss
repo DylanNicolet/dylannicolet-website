@@ -97,12 +97,18 @@
         left: 0;
         right: 0;
         bottom: 0;
-        display: flex;
         justify-content: center;
         align-items: center;
+        display: none;
 
-        &.activate-preview {
-            animation: activate-preview 5s;
+        &.previewActive {
+            display: flex;
+            animation: activate-preview 300ms ease-out forwards;
+        }
+
+        &.previewClosing {
+            display: flex;
+            animation: deactivate-preview 300ms ease-out forwards;
         }
 
         .featured-card__preview-container {
