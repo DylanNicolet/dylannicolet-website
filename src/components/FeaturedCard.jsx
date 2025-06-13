@@ -33,7 +33,7 @@ export default function FeaturedCard(props){
             <section className="featured-card__modal">
                 { (props.title !== "Component library") && // Don't generate live preview for component library
                     <>
-                        <button className="button-primary" onClick={activatePreview}>Mini preview</button>
+                        <button className="button-primary featured-card__button" onClick={activatePreview}>Mini preview</button>
                         <div
                             className={`featured-card__preview ${previewState === "active" ? "previewActive" : previewState === "closing" ? "previewClosing" : ""}`}
                             onMouseLeave={handleMouseLeave}
@@ -45,8 +45,8 @@ export default function FeaturedCard(props){
                         </div>
                     </>
                 }
-                <a href={props.live}  target="_blank" rel="noreferrer"><button className="button-primary">Live website</button></a>
-                <a href={props.github} target="_blank" rel="noreferrer"><button className="button-primary">GitHub Code</button> </a>
+                <a href={props.live}  className="button-primary featured-card__external-link" target="_blank" rel="noreferrer">Live website</a>
+                <a href={props.github}  className="button-primary featured-card__external-link" target="_blank" rel="noreferrer">GitHub Code </a>
             </section>
 
             <img src={props.imageSource} alt="thumbnail preview of the website"  className="featured-card__image"/>
