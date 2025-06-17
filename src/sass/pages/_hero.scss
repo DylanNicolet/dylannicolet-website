@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Babylonica&display=swap');
 
 .hero {
-    background-image: linear-gradient(transparent, rgb(0, 0, 0) 98%), url("/src/assets/images/hero-bg-mobile.webp"); 
+    background-image: linear-gradient(transparent, u.$color-background 98%), url("/src/assets/images/hero-bg-mobile.webp");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
